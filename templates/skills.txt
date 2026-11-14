@@ -1,0 +1,17 @@
+# Hermes Agent — starter skills manifest (one per line)
+# Forms:
+#   name                      -> installed from the bundled skills/ dir in this repo;
+#                                if not bundled there, treated as a skills-hub id
+#   https://.../SKILL.md      -> `hermes skills install <url>`
+#   tap:owner/repo            -> `hermes skills tap add owner/repo` (add once, then
+#                                list the skill names from that repo as normal lines)
+# Blank lines and # comments are ignored.
+#
+# Bundled with this template (public, MIT):
+hermes-agent
+vllm-b70-qwen38-deploy
+#
+# Examples (uncomment / edit):
+# zeppo-discord-bot                              # after: tap:ChrisL2000/zeppo-discord-bot
+# tap:ChrisL2000/zeppo-discord-bot
+# https://raw.githubusercontent.com/NousResearch/hermes-agent/main/README.md

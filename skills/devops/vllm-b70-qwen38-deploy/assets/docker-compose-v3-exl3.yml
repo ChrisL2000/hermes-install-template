@@ -1,0 +1,121 @@
+# vllm-b70-qwen38-v3 — zeppo Phase 4, stage 2: EXL3 4.00bpw (author's production-exl3-v2 recipe)
+# Image local/b70-qwen38-vllm:zeppo-exl3-v3 = migration-target built by exl3xpu scripts/zeppo_build_target_image.py
+#   on zeppo-v2-gptq-onednn + release metadata (scripts/zeppo-prepare-exl3-release-image.py, branch zeppo-v3).
+#   _C.so and m04.so hashes match the author's release exactly; libdnnl is our GPU-only build (as v2).
+# Model: turboderp/Qwen3.8-27B-exl3 @113cf7ab (~/.cache/exl3xpu/turboderp-Qwen3.8-27B-exl3-4.00bpw)
+# Args/env = the image's frozen migration-target-optimized.yaml profile (same as the author's run-server-exl3.py).
+#
+# v1, v2 and v3 share port 8081 and the GPU: only ONE may run.
+#   to v3:        (in ~/vllm-b70-qwen38-v2) docker compose stop   ; then here: docker compose up -d
+#   back to v2:   here: docker compose down ; (in ~/vllm-b70-qwen38-v2) docker compose up -d
+name: vllm-b70-qwen38-v3
+
+services:
+  vllm:
+    image: local/b70-qwen38-vllm:zeppo-exl3-v3
+    container_name: vllm-b70-qwen38-v3
+    restart: always        # live since 2026-10-24 (v2 set to restart=no)
+    devices:
+      - /dev/dri:/dev/dri
+    group_add:
+      - "992"
+    shm_size: 8gb
+    ports:
+      - "8081:8000"
+    networks:
+      vllm-network:
+        aliases: [vllm-b70]
+    volumes:
+      - /home/chrismok/.cache/exl3xpu/turboderp-Qwen3.8-27B-exl3-4.00bpw:/models/checkpoint:ro
+      - /home/chrismok/src/intel-b70-qwen38-vllm/runtime:/opt/b70-runtime:ro
+      - v3-vllm-cache:/root/.cache/vllm
+      - v3-triton-cache:/root/.triton/cache
+      - v3-neo-cache:/root/.cache/neo_compiler_cache
+      - v3-results:/results
+    entrypoint: ["/opt/venv/bin/vllm"]
+    environment:
+      VLLM_XPU_ENABLE_XPU_GRAPH: "1"
+      VLLM_WORKER_MULTIPROC_METHOD: "spawn"
+      EXL3_DRAFT_VOCAB: "/opt/exl3xpu/models/qwen3.8-27b-exl3-4.00bpw/draft_vocab.json"
+      EXL3_KV_BLOCK_EXACT: "0"
+      EXL3_ONEDNN_ATTN: "0"
+      EXL3_INT8_PREFILL: "1"
+      EXL3_TARGET_RUNTIME: "vllm030"
+      EXL3_FIX_SPARSE_GDN_RETIREMENT: "0"
+      B70_ONEDNN_PREFILL: "0"
+      B70_ONEDNN_MIXED_ROUTE: "0"
+      B70_GPTQ_W4A8_PREFILL: "0"
+      EXL3_GUARDED_ATTN: "1"
+      EXL3_GUARDED_PREFILL: "1"
+      EXL3_M04_LIBRARY: "/opt/exl3xpu/m04/m04.so"
+      EXL3_M04_LIBRARY_SHA256: "eaa18427db27d4fceeca8a17c8a3c6b019b7678f39bf98affc1736b9f2c2d631"
+      EXL3_SDPA_CACHE_CAPACITY: "64"
+      HF_HUB_OFFLINE: "1"
+      PYTHONPATH: "/opt/b70-runtime"
+      ZE_AFFINITY_MASK: "0"
+      EXL3_LOADER_REPORT_DIR: "/results/loader"
+    command:
+      - "serve"
+      - "/models/checkpoint"
+      - "--served-model-name"
+      - "Qwen3.8-27B"
+      - "--host"
+      - "0.0.0.0"
+      - "--port"
+      - "8000"
+      - "--revision"
+      - "113cf7ab958054860e43fb7f3063b1af19171095"
+      - "--dtype"
+      - "float16"
+      - "--max-model-len"
+      - "262144"
+      - "--kv-cache-dtype"
+      - "fp8"
+      - "--gpu-memory-utilization"
+      - "0.965"
+      - "--max-num-seqs"
+      - "16"
+      - "--max-num-batched-tokens"
+      - "4096"
+      - "--scheduler-reserve-full-isl"
+      - "--watermark"
+      - "0.0"
+      - "--enable-prefix-caching"
+      - "--mamba-cache-mode"
+      - "align"
+      - "--speculative-config"
+      - "{\"method\":\"mtp\",\"num_speculative_tokens\":3}"
+      - "--limit-mm-per-prompt"
+      - "{\"image\":32,\"video\":4}"
+      - "--mm-processor-kwargs"
+      - "{\"max_pixels\":4194304}"
+      - "--enable-auto-tool-choice"
+      - "--tool-call-parser"
+      - "qwen3_xml"
+      - "--reasoning-parser"
+      - "qwen3"
+      - "--reasoning-config"
+      - "{\"reasoning_start_str\":\"<think>\",\"reasoning_end_str\":\"</think>\"}"
+      - "--override-generation-config"
+      - "{\"max_new_tokens\":16384}"
+      - "--middleware"
+      - "request_defaults.ChatDefaults"
+      - "--compilation-config"
+      - "{\"cudagraph_mode\":\"FULL_DECODE_ONLY\",\"cudagraph_capture_sizes\":[1,2,4,8,12,16,24,32,40,48,56,64]}"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      start_period: 1800s
+      retries: 5
+
+volumes:
+  v3-vllm-cache:
+  v3-triton-cache:
+  v3-neo-cache:
+  v3-results:
+
+networks:
+  vllm-network:
+    external: true
+    name: zeppo_vllm-network

@@ -1,0 +1,24 @@
+# Hermes Agent — default LLM template
+# Rendered by install.sh: __PROVIDER__ __MODEL__ __BASE_URL__ __CONTEXT_LENGTH__
+# On a fresh install this file becomes ~/.hermes/config.yaml; Hermes fills in
+# all other defaults itself (hermes config / hermes doctor to inspect).
+
+model:
+  default: __MODEL__
+  provider: custom:__PROVIDER__
+  context_length: __CONTEXT_LENGTH__
+
+# Same LLM as fallback (harmless, keeps one-shot callers on the local model)
+fallback_providers:
+  - provider: __PROVIDER__
+    model: __MODEL__
+
+# Named custom provider (OpenAI-compatible endpoint, e.g. vLLM / llama.cpp / LM Studio)
+providers:
+  __PROVIDER__:
+    name: __PROVIDER__
+    api: __BASE_URL__
+    # keyless local server? leave api_key out — Hermes uses "no-key-required"
+    # (set api_key: not-needed, or key_env: MY_KEY, if your endpoint wants one)
+    default_model: __MODEL__
+    context_length: __CONTEXT_LENGTH__

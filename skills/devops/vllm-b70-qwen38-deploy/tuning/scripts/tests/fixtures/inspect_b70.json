@@ -1,0 +1,415 @@
+[
+    {
+        "Id": "59ce93fc287c2895787ad8afd625dde97d7450c9c193e9e368660039d8bf8f33",
+        "Created": "2026-10-03T13:56:41.386391073Z",
+        "Path": "vllm",
+        "Args": [
+            "serve",
+            "mikeinnyc/Qwen3.8-27B-GPTQ-Int4-sym-G128-MTP-BF16",
+            "--revision=a47b0c6f0d756bc394c4cc629d5b0ded1acc7001",
+            "--quantization=gptq",
+            "--dtype=float16",
+            "--max-model-len=200704",
+            "--gpu-memory-utilization=0.93",
+            "--kv-cache-dtype=fp8",
+            "--max-num-seqs=4",
+            "--max-num-batched-tokens=6656",
+            "--scheduler-reserve-full-isl",
+            "--watermark=0.0",
+            "--enable-prefix-caching",
+            "--mamba-cache-mode=align",
+            "--served-model-name=Qwen3.8-27B",
+            "--speculative-config={\"method\":\"mtp\",\"num_speculative_tokens\":4}",
+            "--middleware=request_defaults.ChatDefaults",
+            "--reasoning-config={\"reasoning_start_str\":\"<think>\",\"reasoning_end_str\":\"</think>\"}",
+            "--override-generation-config={\"max_new_tokens\":16384}",
+            "--enable-auto-tool-choice",
+            "--tool-call-parser=qwen3_xml",
+            "--reasoning-parser=qwen3",
+            "--limit-mm-per-prompt={\"image\":1,\"video\":0}",
+            "--mm-processor-kwargs={\"max_pixels\":4194304}",
+            "--host=0.0.0.0",
+            "--port=8000"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 21457,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-03T17:50:43.445898299Z",
+            "FinishedAt": "2026-10-03T17:50:43.200085702Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2026-10-11T20:53:54.840826709-04:00",
+                        "End": "2026-10-11T20:53:54.883342622-04:00",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n"
+                    },
+                    {
+                        "Start": "2026-10-11T20:54:09.884760301-04:00",
+                        "End": "2026-10-11T20:54:09.982350605-04:00",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n"
+                    },
+                    {
+                        "Start": "2026-10-11T20:54:24.98372512-04:00",
+                        "End": "2026-10-11T20:54:25.078176516-04:00",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n"
+                    },
+                    {
+                        "Start": "2026-10-11T20:54:40.079117986-04:00",
+                        "End": "2026-10-11T20:54:40.128437271-04:00",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n"
+                    },
+                    {
+                        "Start": "2026-10-11T20:54:55.129307274-04:00",
+                        "End": "2026-10-11T20:54:55.161628712-04:00",
+                        "ExitCode": 0,
+                        "Output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:d23879897d93d256652d39c4d59f5c4759d97be7db48239f974a6c0b5166df17",
+        "ResolvConfPath": "/home/docker-data/containers/59ce93fc287c2895787ad8afd625dde97d7450c9c193e9e368660039d8bf8f33/resolv.conf",
+        "HostnamePath": "/home/docker-data/containers/59ce93fc287c2895787ad8afd625dde97d7450c9c193e9e368660039d8bf8f33/hostname",
+        "HostsPath": "/home/docker-data/containers/59ce93fc287c2895787ad8afd625dde97d7450c9c193e9e368660039d8bf8f33/hosts",
+        "LogPath": "/home/docker-data/containers/59ce93fc287c2895787ad8afd625dde97d7450c9c193e9e368660039d8bf8f33/59ce93fc287c2895787ad8afd625dde97d7450c9c193e9e368660039d8bf8f33-json.log",
+        "Name": "/vllm-b70-qwen38-gptq",
+        "RestartCount": 6,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "vllm-b70-qwen38-gptq_b70-triton-cache:/root/.triton/cache:rw",
+                "/home/chrismok/src/intel-b70-qwen38-vllm/runtime:/opt/b70-runtime:ro",
+                "zeppo_huggingface-cache:/root/.cache/huggingface:rw",
+                "vllm-b70-qwen38-gptq_b70-vllm-cache:/root/.cache/vllm:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "zeppo_vllm-network",
+            "PortBindings": {
+                "8000/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8081"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": [
+                "992"
+            ],
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 8589934592,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [
+                {
+                    "PathOnHost": "/dev/dri",
+                    "PathInContainer": "/dev/dri",
+                    "CgroupPermissions": "rwm"
+                }
+            ],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware",
+                "/sys/devices/system/cpu/cpu0/thermal_throttle",
+                "/sys/devices/system/cpu/cpu1/thermal_throttle",
+                "/sys/devices/system/cpu/cpu2/thermal_throttle",
+                "/sys/devices/system/cpu/cpu3/thermal_throttle",
+                "/sys/devices/system/cpu/cpu4/thermal_throttle",
+                "/sys/devices/system/cpu/cpu5/thermal_throttle",
+                "/sys/devices/system/cpu/cpu6/thermal_throttle",
+                "/sys/devices/system/cpu/cpu7/thermal_throttle",
+                "/sys/devices/system/cpu/cpu8/thermal_throttle",
+                "/sys/devices/system/cpu/cpu9/thermal_throttle",
+                "/sys/devices/system/cpu/cpu10/thermal_throttle",
+                "/sys/devices/system/cpu/cpu11/thermal_throttle"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "59ce93fc287c2895787ad8afd625dde97d7450c9c193e9e368660039d8bf8f33",
+                "LowerDir": "/home/docker-data/overlay2/c594f5b307f33b15cef3e51d1886d4e9c62f88fe6f5285ba73688e6a5e640094-init/diff:/home/docker-data/overlay2/yknsqohzribfz1yfv1gcxelue/diff:/home/docker-data/overlay2/pkbsj59zkfgr80yuuaqceqx3d/diff:/home/docker-data/overlay2/0o3o0xiw37mtgvx3ls3p1jl9m/diff:/home/docker-data/overlay2/llc5va7btsopcw16y301nkd44/diff:/home/docker-data/overlay2/thk8yxq0nv0ius0vymr8qrjdu/diff:/home/docker-data/overlay2/6nmjxyeyfx80kz4pj7qc6shu6/diff:/home/docker-data/overlay2/zk9afn61o0k4p6kniirm90bk1/diff:/home/docker-data/overlay2/x57jxs00bb6fnopgv0m9vsvkz/diff:/home/docker-data/overlay2/h4l6f11ej5t2ormfnsh7yfmdu/diff:/home/docker-data/overlay2/2va9jyzxce8cht57mhcrox185/diff:/home/docker-data/overlay2/nzd43n06ksi7vz8bknv4srxx5/diff:/home/docker-data/overlay2/mskhz614yhqp1azibtyvmnqlh/diff:/home/docker-data/overlay2/dvomh73cl25w7rrn85nsrp3qu/diff:/home/docker-data/overlay2/o7t7g8n7ywqh1o70bdrin3137/diff:/home/docker-data/overlay2/hyglt5y0ktdnjaqpxclrb3rj7/diff:/home/docker-data/overlay2/pquk7d7fb5bhnkhnxf0uksx1d/diff:/home/docker-data/overlay2/umqysxdbgot6pug4mkub3g4fu/diff:/home/docker-data/overlay2/xh5kmblbug8q1enavdjlrsy7t/diff:/home/docker-data/overlay2/lomtsf6lp9ussz6sv90ix1tmh/diff:/home/docker-data/overlay2/v3bzvgujkbnq92i1cz57o4jq0/diff:/home/docker-data/overlay2/lulrkl3381kujopdct29xbail/diff:/home/docker-data/overlay2/250794876b7690db36e0ab16d4c25b508893271e6302465800e13e84a62c2a7e/diff:/home/docker-data/overlay2/cf977829309cb867452067ee4c341dbfd4f2aced3c61c1a6588aa7d042d19c01/diff:/home/docker-data/overlay2/b15227638f860836d2ba42447de8ab01028b7d8b140ca0546a5e2bd968c2eac3/diff:/home/docker-data/overlay2/13c890463c58a2620775b30b0d19d27d711d4dc91a95edd50aa94c6c8eee04bc/diff:/home/docker-data/overlay2/a971f63c3a8b413652b2fdedd80acc07ff5f050241f10b6c0d16339be430cfc6/diff:/home/docker-data/overlay2/e9656c9729dfeed1ce03645fb5abdf684d97f8e811a46d427ef8beeced85dd2a/diff:/home/docker-data/overlay2/a18f992d60af764b4c941b2cf8c4a5753ac0a24df3304b44af0e1f080f2f7672/diff:/home/docker-data/overlay2/202cc43fba49c9eac34a2565b6467a509eb37f9f2ca4fe2e03a5e6d1cd964afe/diff:/home/docker-data/overlay2/45bb422312d2b103bd06fc62768e0d9c51f079403e510f04737e1644272f907c/diff:/home/docker-data/overlay2/ffd6951d6ac25cc4b0387e26d82f404e3ac1ac8f01bea5a5659ad06e95883e91/diff:/home/docker-data/overlay2/2e049997d6b1a84b429a381d9f24d94b2995ad50e0afc9f0721ba1f199b6b5b3/diff:/home/docker-data/overlay2/4a3e72011dddd1e9846202b44dbe1b0c81b557bd57d482c0032237fafa616f3f/diff:/home/docker-data/overlay2/20c2bdf647621f2eb6726173bc7eeda29f6e871f8d62ef2082047646a76438e7/diff:/home/docker-data/overlay2/447064e4ba785a8055dd7009adb512522da1dea2246c9642ee8813f2f16ee5b1/diff:/home/docker-data/overlay2/f55b95f8a5408f9e361a6e9bc4383abb4db0870e933b0d076e1f9b5d30b42fe2/diff:/home/docker-data/overlay2/d2013030851f951562d5436027cb72a788bf950d262816f86bc6714eb97f7b43/diff:/home/docker-data/overlay2/a210610debb794bcd1917de67ff842524d9eba7e4154f290d29a22263396a247/diff:/home/docker-data/overlay2/a7610e63da4dfdcaa861337d7507fd3b9757654486635a5c6a5d66471859b561/diff",
+                "MergedDir": "/home/docker-data/overlay2/c594f5b307f33b15cef3e51d1886d4e9c62f88fe6f5285ba73688e6a5e640094/merged",
+                "UpperDir": "/home/docker-data/overlay2/c594f5b307f33b15cef3e51d1886d4e9c62f88fe6f5285ba73688e6a5e640094/diff",
+                "WorkDir": "/home/docker-data/overlay2/c594f5b307f33b15cef3e51d1886d4e9c62f88fe6f5285ba73688e6a5e640094/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/chrismok/src/intel-b70-qwen38-vllm/runtime",
+                "Destination": "/opt/b70-runtime",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "volume",
+                "Name": "zeppo_huggingface-cache",
+                "Source": "/home/docker-data/volumes/zeppo_huggingface-cache/_data",
+                "Destination": "/root/.cache/huggingface",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "vllm-b70-qwen38-gptq_b70-vllm-cache",
+                "Source": "/home/docker-data/volumes/vllm-b70-qwen38-gptq_b70-vllm-cache/_data",
+                "Destination": "/root/.cache/vllm",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "vllm-b70-qwen38-gptq_b70-triton-cache",
+                "Source": "/home/docker-data/volumes/vllm-b70-qwen38-gptq_b70-triton-cache/_data",
+                "Destination": "/root/.triton/cache",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "59ce93fc287c",
+            "Domainname": "",
+            "User": "root",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8000/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "VLLM_WORKER_MULTIPROC_METHOD=spawn",
+                "ZE_AFFINITY_MASK=0",
+                "VLLM_TARGET_DEVICE=xpu",
+                "PYTORCH_ALLOC_CONF=expandable_segments:True",
+                "B70_DRAFT_VOCAB_ENABLED=0",
+                "B70_DRAFT_MTP_INT4=1",
+                "ZE_FLAT_DEVICE_HIERARCHY=COMPOSITE",
+                "B70_XPU_SINGLE_SEED_SAMPLER=0",
+                "HF_HUB_OFFLINE=1",
+                "VLLM_XPU_ENABLE_XPU_GRAPH=1",
+                "B70_MTP_BF16_DRAFT=1",
+                "B70_DRAFT_LMHEAD_INT4=1",
+                "PYTHONPATH=/opt/b70-runtime",
+                "B70_DRAFT_VOCAB_PATH=",
+                "PATH=/opt/venv/bin:/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DEBIAN_FRONTEND=noninteractive",
+                "VIRTUAL_ENV=/opt/venv",
+                "UV_PYTHON_INSTALL_DIR=/opt/uv/python",
+                "UV_HTTP_TIMEOUT=500",
+                "PIP_EXTRA_INDEX_URL=https://download.pytorch.org/whl/xpu",
+                "UV_EXTRA_INDEX_URL=https://download.pytorch.org/whl/xpu",
+                "UV_INDEX_STRATEGY=unsafe-best-match",
+                "UV_LINK_MODE=copy",
+                "LD_LIBRARY_PATH=/opt/ucx/lib:/opt/venv/lib:/usr/local/lib"
+            ],
+            "Cmd": [
+                "mikeinnyc/Qwen3.8-27B-GPTQ-Int4-sym-G128-MTP-BF16",
+                "--revision=a47b0c6f0d756bc394c4cc629d5b0ded1acc7001",
+                "--quantization=gptq",
+                "--dtype=float16",
+                "--max-model-len=200704",
+                "--gpu-memory-utilization=0.93",
+                "--kv-cache-dtype=fp8",
+                "--max-num-seqs=4",
+                "--max-num-batched-tokens=6656",
+                "--scheduler-reserve-full-isl",
+                "--watermark=0.0",
+                "--enable-prefix-caching",
+                "--mamba-cache-mode=align",
+                "--served-model-name=Qwen3.8-27B",
+                "--speculative-config={\"method\":\"mtp\",\"num_speculative_tokens\":4}",
+                "--middleware=request_defaults.ChatDefaults",
+                "--reasoning-config={\"reasoning_start_str\":\"<think>\",\"reasoning_end_str\":\"</think>\"}",
+                "--override-generation-config={\"max_new_tokens\":16384}",
+                "--enable-auto-tool-choice",
+                "--tool-call-parser=qwen3_xml",
+                "--reasoning-parser=qwen3",
+                "--limit-mm-per-prompt={\"image\":1,\"video\":0}",
+                "--mm-processor-kwargs={\"max_pixels\":4194304}",
+                "--host=0.0.0.0",
+                "--port=8000"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD",
+                    "curl",
+                    "-f",
+                    "http://localhost:8000/health"
+                ],
+                "Interval": 15000000000,
+                "Timeout": 5000000000,
+                "StartPeriod": 1200000000000,
+                "Retries": 5
+            },
+            "Image": "local/b70-qwen38-vllm:base-dev",
+            "Volumes": null,
+            "WorkingDir": "/workspace/vllm",
+            "Entrypoint": [
+                "vllm",
+                "serve"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "8bcd679bba529b3ade3a973910eed19aa76c443adaa2f96b215242e1298b6ba2",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:d23879897d93d256652d39c4d59f5c4759d97be7db48239f974a6c0b5166df17",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "vllm-b70-qwen38-gptq",
+                "com.docker.compose.project.config_files": "/home/chrismok/vllm-b70-qwen38-gptq/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/home/chrismok/vllm-b70-qwen38-gptq",
+                "com.docker.compose.service": "vllm",
+                "com.docker.compose.version": "5.5.1",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "c2912e039aef221a996d0b7dcdfe3973a59f07c6c3ae247b9907b91143331bfb",
+            "SandboxKey": "/var/run/docker/netns/c2912e039aef",
+            "Ports": {
+                "8000/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8081"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "8081"
+                    }
+                ]
+            },
+            "Networks": {
+                "zeppo_vllm-network": {
+                    "IPAMConfig": {},
+                    "Links": null,
+                    "Aliases": [
+                        "vllm-b70-qwen38-gptq",
+                        "vllm",
+                        "vllm-b70"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "6669d9eb4043382e29c5bbd6f10b2b0d0465ab62dbe8b00ec188c71bd529e641",
+                    "EndpointID": "147cde92e245a9a4e851368c42344fa5c13e0a16d29e09a7c7a819ef421aadf2",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "MacAddress": "92:4d:75:73:72:ff",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "vllm-b70-qwen38-gptq",
+                        "vllm",
+                        "vllm-b70",
+                        "59ce93fc287c"
+                    ]
+                }
+            }
+        }
+    }
+]
