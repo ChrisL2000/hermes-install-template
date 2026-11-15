@@ -12,7 +12,7 @@ Defaults (all overridable):
 | Model | `Qwen3.8-27B` |
 | Endpoint | `http://localhost:8081/v1` (OpenAI-compatible: vLLM, llama.cpp, LM Studio, ...) |
 | Context length | `262144` |
-| Skills | `hermes-agent`, `vllm-b70-qwen38-deploy`, `povray` |
+| Skills | `hermes-agent`, `vllm-b70-qwen38-deploy`, `povray` (+ the bundled `secops-os-linux` tree, opt-in) |
 
 ## Quick start
 
@@ -68,6 +68,32 @@ profile's home or a test directory.
    - existing skill dirs are kept unless `--force`.
 5. **Summary** — prints what was installed; `--doctor` runs `hermes doctor`.
 
+## Bundled skill trees
+
+| Tree | Category | Contents |
+|---|---|---|
+| Hermes operating guide | `autonomous-ai-agents` | `hermes-agent` |
+| Tuned vLLM deploy | `devops` | `vllm-b70-qwen38-deploy` |
+| POV-Ray authoring | `creative` | `povray` |
+| Linux host security ops | `secops-os-linux` | umbrella `secops-os-linux` + `untrusted-host-provisioning`, `cloudflare-tunnel-ssh-tls`, `remote-host-ssh-setup` (opt-in) |
+
+The `secops-os-linux` tree is bundled but not installed by default — uncomment its lines
+in `templates/skills.txt`, or pass `--skills secops-os-linux,untrusted-host-provisioning,...`.
+
+## Skill taxonomy & publishing rules
+
+Layout, authoring rules, the scrub gate and the publish/import procedures live in
+[TAXONOMY.md](TAXONOMY.md). Every agent publishing a skill here — or importing one back
+into a profile — should follow it, so two agents working months apart produce the same
+shape. The one hard gate is the scrub check:
+
+```bash
+bash scripts/publish-check.sh . <category>     # e.g. secops-os-linux
+```
+
+It fails on credential shapes, real IP addresses outside the allowlist, operator
+hostnames and operator absolute paths. A match is a failure — fix the file.
+
 ## Customizing the template
 
 - **Different LLM:** pass flags, or edit `templates/config.yaml` placeholders.
@@ -93,12 +119,18 @@ hermes               # chat
 
 ```
 install.sh               the installer
+TAXONOMY.md              skill taxonomy + publishing/import rules and the scrub gate
+scripts/publish-check.sh scrub gate: credentials, IPs, hostnames, operator paths
 templates/config.yaml    default-LLM config template (placeholders)
 templates/skills.txt     skills manifest (bundled names / URLs / taps)
 templates/.env.example   .env seed (API-key placeholders)
 skills/autonomous-ai-agents/hermes-agent/      bundled: Hermes operating guide (MIT)
 skills/devops/vllm-b70-qwen38-deploy/          bundled: tuned Qwen3.8-27B vLLM deploy (MIT)
 skills/creative/povray/                         bundled: POV-Ray scene-writing reference + scenes (MIT)
+skills/secops-os-linux/secops-os-linux/         bundled: umbrella + taxonomy summary (opt-in)
+skills/secops-os-linux/untrusted-host-provisioning/  bundled: host provisioning + egress lock (opt-in)
+skills/secops-os-linux/cloudflare-tunnel-ssh-tls/    bundled: tunnel TLS/SSH troubleshooting (opt-in)
+skills/secops-os-linux/remote-host-ssh-setup/        bundled: agent ssh/sudo onboarding (opt-in)
 ```
 
 ## License

@@ -12,7 +12,15 @@ hermes-agent
 vllm-b70-qwen38-deploy
 povray
 #
+# Bundled, opt-in — the secops-os-linux tree (uncomment to install by default, or
+# pass --skills secops-os-linux,untrusted-host-provisioning,...). Taxonomy and
+# publishing rules: TAXONOMY.md
+# secops-os-linux                  # umbrella: routes to the pieces below
+# untrusted-host-provisioning      # docker install, loopback publishing, egress lock
+# cloudflare-tunnel-ssh-tls        # tunnel TLS/SSH failures, cert coverage, ingress
+# remote-host-ssh-setup            # agent ssh + sudo onboarding on a remote host
+#
 # Examples (uncomment / edit):
-# zeppo-discord-bot                              # after: tap:ChrisL2000/zeppo-discord-bot
-# tap:ChrisL2000/zeppo-discord-bot
+# example-hub-skill                              # a skills-hub id
+# tap:some-owner/some-repo                       # add a GitHub tap once
 # https://raw.githubusercontent.com/NousResearch/hermes-agent/main/README.md
