@@ -12,7 +12,7 @@ Defaults (all overridable):
 | Model | `Qwen3.8-27B` |
 | Endpoint | `http://localhost:8081/v1` (OpenAI-compatible: vLLM, llama.cpp, LM Studio, ...) |
 | Context length | `262144` |
-| Skills | `hermes-agent`, `vllm-b70-qwen38-deploy` |
+| Skills | `hermes-agent`, `vllm-b70-qwen38-deploy`, `povray` |
 
 ## Quick start
 
@@ -98,6 +98,7 @@ templates/skills.txt     skills manifest (bundled names / URLs / taps)
 templates/.env.example   .env seed (API-key placeholders)
 skills/autonomous-ai-agents/hermes-agent/      bundled: Hermes operating guide (MIT)
 skills/devops/vllm-b70-qwen38-deploy/          bundled: tuned Qwen3.8-27B vLLM deploy (MIT)
+skills/creative/povray/                         bundled: POV-Ray scene-writing reference + scenes (MIT)
 ```
 
 ## License

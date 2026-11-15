@@ -10,6 +10,7 @@
 # Bundled with this template (public, MIT):
 hermes-agent
 vllm-b70-qwen38-deploy
+povray
 #
 # Examples (uncomment / edit):
 # zeppo-discord-bot                              # after: tap:ChrisL2000/zeppo-discord-bot
